@@ -18,7 +18,12 @@ namespace Business.Concrete
         public List<Car> GetAll()
         {
             //business code
-            return _carDal.GetAll();
+           return _carDal.GetAll();
+        }
+
+        public object GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }

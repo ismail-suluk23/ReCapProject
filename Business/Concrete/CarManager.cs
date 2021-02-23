@@ -15,13 +15,48 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public void Add(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             //business code
            return _carDal.GetAll();
         }
 
-        public object GetCarDetails()
+        public List<Car> GetAllByCarId(int id)
+        {
+            return _carDal.GetAll(p => p.CarId == id);
+        }
+
+        public List<Car> GetByDailyPrice(decimal min, decimal max)
+       {
+            return _carDal.GetAll(p => p.DailyPrice <= min && p.DailyPrice >= max);
+        }
+
+        public Car GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetCarsByBrandId(int brandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetCarsByColorId(int colorId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Car car)
         {
             throw new NotImplementedException();
         }

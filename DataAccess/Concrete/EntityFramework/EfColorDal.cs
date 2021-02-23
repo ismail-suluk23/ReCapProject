@@ -14,10 +14,11 @@ namespace DataAccess.Concrete.EntityFramework
             throw new NotImplementedException();
         }
 
-        public void Deleted(Color entity)
+        public void Delete(Color entity)
         {
             throw new NotImplementedException();
         }
+
 
         public Color Get(Expression<Func<Color, bool>> filter)
         {
@@ -29,11 +30,10 @@ namespace DataAccess.Concrete.EntityFramework
             throw new NotImplementedException();
         }
 
-       
-
         public void Update(Color entity)
         {
             throw new NotImplementedException();
         }
     }
+
 }

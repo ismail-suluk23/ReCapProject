@@ -9,12 +9,21 @@ namespace ConsoleIU
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine(car.CarId +"----"+ car.Description+"---"+car.ColorId+"-----"+car.BrandId+"-----"+car.ModelYear+"----"+car.DailyPrice);
-            }
 
+            //Data Transformation Object  // DTO
+             CarTest();
+
+        }
+
+        private static void CarTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine("Araç Adı: " + car.CarName + "\t" + " Marka: " + car.BrandName + "\t" + "Renk: " +
+                                  car.ColorName + "\t" + "Günlük Ücret: " + car.DailyPrice);
+            }
         }
     }
 }

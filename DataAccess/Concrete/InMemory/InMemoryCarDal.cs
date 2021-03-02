@@ -12,7 +12,8 @@ namespace DataAccess.Concrete.InMemory
     public class InMemoryCarDal : ICarDal
     {
        List<Color> colors;
-      List<Brand> brands;       List<Car> cars;
+       List<Brand> brands;
+       List<Car> cars;
 
 
         public InMemoryCarDal()

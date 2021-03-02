@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,14 @@ namespace Business.Abstract
 {
     public interface ICarService
     {
-        List<Car> GetAll();
-        void Add(Car car);
-        void Delete(Car car);
-        void Update(Car car);
-        Car GetById(int id);
-        List<Car> GetCarsByBrandId(int brandId);
-        List<Car> GetCarsByColorId(int colorId);
+        IDataResult<List<Car>> GetAll();
 
-        List<CarDetailDto> GetCarDetails();
+        IResult Delete(Car entity);
+        IResult Update(Car entity);       
+        IDataResult<List<Car>> GetCarsByBrandId(int brandId);
+        IDataResult<List<Car>> GetCarsByColorId(int colorId);
+        IDataResult<List<CarDetailDto>> GetCarDetails();
+        IResult Add(Car entity);
+        IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
     }
 }

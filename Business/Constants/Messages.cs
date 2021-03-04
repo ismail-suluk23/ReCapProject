@@ -43,6 +43,6 @@ namespace Business.Constants
         public static string UserUpdated = "User updated.";
         public static string UserNameInvalid = "User name is invalid.";
         public static string UsersListed = "Users have been listed.";
-        internal static string CarDescriptionInvalid;
+        public static string CarDescriptionInvalid ="";
     }
 }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace Business.Concrete
 {
     public class CarManagerBase
-    {
+    { 
         ICarDal _carDal;
 
 

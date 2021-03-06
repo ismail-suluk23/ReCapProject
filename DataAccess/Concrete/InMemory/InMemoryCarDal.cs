@@ -78,6 +78,11 @@ namespace DataAccess.Concrete.InMemory
             return entity;
         }
 
+        public List<CarDetailDto> GetCarDetailDtos(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
@@ -93,9 +98,6 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.ModelYear = car.ModelYear;
         }
 
-        List<CarDetailDto> ICarDal.GetCarDetails()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

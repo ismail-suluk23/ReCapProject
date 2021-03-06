@@ -18,41 +18,36 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+     //   [SecuredOperation("color.add,admin")]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
-
-            if (color.ColorName.Length < 2)
-            {
-                return new ErrorResult(Messages.ColorNameInvalid);
-            }
-
-            return new SuccessResult(Messages.ColorAdded);
+            return new SuccessResult();
         }
 
+      //  [SecuredOperation("color.delete,admin")]
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
-
-            return new SuccessResult(Messages.ColorDeleted);
+            return new SuccessResult();
         }
 
-        public IDataResult<List<Color>> GetAll()
-        {
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Color>>(Messages.MaintenanceTime);
-            }
-
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorsListed);
-        }
-
+       // [SecuredOperation("color.update,admin")]
         public IResult Update(Color color)
         {
             _colorDal.Update(color);
-
-            return new SuccessResult(Messages.ColorUpdated);
+            return new SuccessResult();
         }
+        public IDataResult<List<Color>> GetColors()
+        {
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
+        }
+        public IDataResult<Color> GetById(int id)
+        {
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == id));
+        }
+
     }
-    
 }
+    
+

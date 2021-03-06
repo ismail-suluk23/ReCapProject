@@ -18,46 +18,37 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
+       // [SecuredOperation("brand.add,admin")]
         public IResult Add(Brand brand)
         {
-            {
-                _brandDal.Add(brand);
-
-                if (brand.BrandName.Length < 2)
-                {
-                    return new ErrorResult(Messages.BrandNameInvalid);
-                }
-
-                return new SuccessResult(Messages.BrandAdded);
-            }
+            _brandDal.Add(brand);
+            return new SuccessResult(Messages.Added);
         }
 
+      //  [SecuredOperation("brand.delete,admin")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
-
-            return new SuccessResult(Messages.BrandDeleted);
+            return new SuccessResult(Messages.Deleted);
         }
 
-
-        public IDataResult<List<Brand>> GetAll()
-        {
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
-            }
-
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
-        }
-
-       
-
+      //  [SecuredOperation("brand.update,admin")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
+            return new SuccessResult(Messages.Updated);
+        }
 
-            return new SuccessResult(Messages.BrandUpdated);
+        public IDataResult<List<Brand>> GetBrands()
+        {
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
+        }
+
+        public IDataResult<Brand> GetById(int id)
+        {
+            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == id));
         }
     }
+    
 }
 

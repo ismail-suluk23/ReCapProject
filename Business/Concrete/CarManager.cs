@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Business.BuisnessAspects;
 using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -24,7 +25,7 @@ namespace Business.Concrete
             _carDal = carDal;         
         }
 
-      //  [ [SecuredOperation("car.add,admin")]
+        [ SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -33,15 +34,15 @@ namespace Business.Concrete
 
         }
 
-     //   [SecuredOperation("car.delete,admin")]
+        [SecuredOperation("car.delete,admin")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
             return new SuccessResult(Messages.Deleted);
         }
 
-     //   [SecuredOperation("car.update,admin")]
-        public IResult Update(Car car)
+        [SecuredOperation("car.update,admin")]
+        public IResult Update(Car car)                                                                                
         {
             _carDal.Update(car);
             return new SuccessResult(Messages.Updated);
@@ -58,7 +59,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max), Messages.Listed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll
+                (c => c.DailyPrice >= min && c.DailyPrice <= max), Messages.Listed);
         }
 
         public IDataResult<Car> GetById(int id)

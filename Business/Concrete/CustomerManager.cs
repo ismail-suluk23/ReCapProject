@@ -22,7 +22,7 @@ namespace Business.Concrete
             _customerDal.Add(customer);
             return new SuccessResult();
         }
-      //  [ValidationAspect(typeof(CustomerValidator))]
+     //   [ValidationAspect(typeof(CustomerValidator))]
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);

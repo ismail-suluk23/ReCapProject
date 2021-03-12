@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Business.BuisnessAspects;
 using Business.Constants;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
@@ -20,7 +21,7 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
-      //  [SecuredOperation("rental.add,admin")]
+        [SecuredOperation("rental.add,admin")]
       //  [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
@@ -28,14 +29,14 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-      //  [SecuredOperation("rental.delete,admin")]
+        [SecuredOperation("rental.delete,admin")]
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
             return new SuccessResult();
         }
 
-       // [SecuredOperation("rental.update,admin")]
+       [SecuredOperation("rental.update,admin")]
        // [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {

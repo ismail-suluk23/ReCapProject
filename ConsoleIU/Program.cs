@@ -70,10 +70,10 @@ namespace ConsoleIU
         //{
         //    User user = new User
         //    {
-        //        Email = "aybikesusuz@gmail.com",
-        //        FirstName = "Aybike",
-        //        LastName = "Susuz",
-        //        Password = "aybike123"
+        //        Email = "ismil123@gmail.com",
+        //        FirstName = "ismail",
+        //        LastName = "Suluk",
+        //        Password = "ismail123"
         //    };
 
         //    userManager.Add(user);

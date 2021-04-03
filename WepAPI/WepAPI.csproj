@@ -15,5 +15,9 @@
     <ProjectReference Include="..\ReCapProject\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
 
 </Project>
